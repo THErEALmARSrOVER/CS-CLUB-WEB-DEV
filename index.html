@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Grammy Official Website</title>
+    <style>
+      body {
+        background-color: gold; /* Set background to golden */
+        font-family: Arial, sans-serif; /* Use a clean font */
+        margin: 0; /* Remove default margin */
+        padding: 20px; /* Add some padding around the body */
+      }
+
+      header {
+        background-color: #fff; /* Optional: Set header background to white for contrast */
+        padding: 20px; /* Add padding to header */
+      }
+
+      nav ul {
+        list-style-type: none; /* Remove bullet points from list */
+        padding: 0; /* Remove padding */
+      }
+
+      nav ul li {
+        display: inline; /* Display items in a line */
+        margin-right: 20px; /* Add space between items */
+      }
+
+      footer {
+        text-align: center; /* Center the footer text */
+        padding: 10px; /* Add padding to footer */
+        background-color: #fff; /* Optional: Set footer background to white */
+      }
+
+      .bio {
+        background-color: white; /* Background for the biography */
+        padding: 10px; /* Add padding */
+        margin-top: 5px; /* Add margin above biography */
+        border: 1px solid #ccc; /* Border around the biography */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>Welcome to the Official Grammy Website</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#best-song">Best Song Nominees</a></li>
+          <li><a href="#best-artist">Best Artist of the Year Nominees</a></li>
+          <li><a href="#vote">Vote</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+      <!-- Home Section -->
+      <section id="home">
+        <h2>Home</h2>
+        <p>
+          Welcome to the Grammy Awards website, where you can find all the
+          latest updates on nominees, winners, and event details.
+        </p>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <h2>About the Grammys</h2>
+        <p>
+          The Grammy Awards celebrate the best in the music industry,
+          recognizing outstanding achievements across various genres and
+          categories.
+        </p>
+      </section>
+
+      <!-- Best Song Nominees Section -->
+      <section id="best-song">
+        <h2>Best Song Nominees</h2>
+        <p>
+          Discover the nominees for Best Song, representing the year’s most
+          impactful and memorable tracks.
+        </p>
+        <a href="#vote">Vote</a>
+      </section>
+
+      <!-- Best Artist of the Year Nominees Section -->
+      <section id="best-artist">
+        <h2>Best Artist of the Year Nominees</h2>
+        <p>
+          Meet the nominees for Artist of the Year, honoring those who have made
+          significant contributions to the music industry.
+        </p>
+        <a href="#vote">Vote</a>
+      </section>
+
+      <!-- Vote Section -->
+      <section id="vote">
+        <h2>Vote for Your Favorite Nominee</h2>
+        <form action="#" method="post">
+          <label for="category">Choose a category:</label>
+          <select id="category" name="category">
+            <option value="best-song">Best Song</option>
+            <option value="best-artist">Best Artist of the Year</option>
+          </select>
+          <br /><br />
+
+          <label for="nominee">Choose a nominee:</label>
+          <div>
+            <input
+              type="radio"
+              id="nominee1"
+              name="nominee"
+              value="Nominee 1"
+            />
+            <label for="nominee1">KSI / Thick Of It</label><br />
+            <div class="bio">
+              KSI is a British YouTuber, rapper, and boxer known for his
+              energetic music style and influential presence in the online
+              community.
+            </div>
+
+            <input
+              type="radio"
+              id="nominee2"
+              name="nominee"
+              value="Nominee 2"
+            />
+            <label for="nominee2"
+              >Yuno Miles / Beat My Grandma With a Pumpkin</label
+            ><br />
+            <div class="bio">
+              Yuno Miles is a rising star in the music scene, known for his
+              catchy lyrics and engaging performances that resonate with a young
+              audience.
+            </div>
+
+            <input
+              type="radio"
+              id="nominee3"
+              name="nominee"
+              value="Nominee 3"
+            />
+            <label for="nominee3">Flight Reacts / Broke Boi</label><br />
+            <div class="bio">
+              Flight Reacts, also known as Flight, is a YouTuber and rapper who
+              gained popularity for his reaction videos and unique musical
+              style.
+            </div>
+
+            <input
+              type="radio"
+              id="nominee4"
+              name="nominee"
+              value="Nominee 4"
+            />
+            <label for="nominee4">Jewboi / The Weather Outside is Rizzy</label
+            ><br />
+            <div class="bio">
+              Jewboi is an artist known for his humorous lyrics and engaging
+              content, often blending comedy with catchy melodies.
+            </div>
+          </div>
+          <br />
+
+          <input type="submit" value="Submit Vote" />
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 Grammy Awards. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
