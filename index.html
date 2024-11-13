@@ -7,38 +7,50 @@
     <title>Grammy Official Website</title>
     <style>
       body {
-        background-color: gold; /* Set background to golden */
-        font-family: Arial, sans-serif; /* Use a clean font */
-        margin: 0; /* Remove default margin */
-        padding: 20px; /* Add some padding around the body */
+        background-color: gold;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
       }
 
       header {
-        background-color: #fff; /* Optional: Set header background to white for contrast */
-        padding: 20px; /* Add padding to header */
+        background-color: #fff;
+        padding: 20px;
       }
 
       nav ul {
-        list-style-type: none; /* Remove bullet points from list */
-        padding: 0; /* Remove padding */
+        list-style-type: none;
+        padding: 0;
       }
 
       nav ul li {
-        display: inline; /* Display items in a line */
-        margin-right: 20px; /* Add space between items */
+        display: inline;
+        margin-right: 20px;
       }
 
       footer {
-        text-align: center; /* Center the footer text */
-        padding: 10px; /* Add padding to footer */
-        background-color: #fff; /* Optional: Set footer background to white */
+        text-align: center;
+        padding: 10px;
+        background-color: #fff;
       }
 
       .bio {
-        background-color: white; /* Background for the biography */
-        padding: 10px; /* Add padding */
-        margin-top: 5px; /* Add margin above biography */
-        border: 1px solid #ccc; /* Border around the biography */
+        background-color: white;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .winner {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .winner img {
+        max-width: 200px;
+        height: auto;
+        margin-top: 10px;
       }
     </style>
   </head>
@@ -101,7 +113,7 @@
       <!-- Vote Section -->
       <section id="vote">
         <h2>Vote for Your Favorite Nominee</h2>
-        <form action="#" method="post">
+        <form id="voteForm">
           <label for="category">Choose a category:</label>
           <select id="category" name="category">
             <option value="best-song">Best Song</option>
@@ -111,13 +123,8 @@
 
           <label for="nominee">Choose a nominee:</label>
           <div>
-            <input
-              type="radio"
-              id="nominee1"
-              name="nominee"
-              value="Nominee 1"
-            />
-            <label for="nominee1">KSI / Thick Of It</label><br />
+            <input type="radio" id="nominee1" name="nominee" value="KSI" />
+            <label for="nominee1">KSI / Thick Of It</label>
             <div class="bio">
               KSI is a British YouTuber, rapper, and boxer known for his
               energetic music style and influential presence in the online
@@ -128,11 +135,11 @@
               type="radio"
               id="nominee2"
               name="nominee"
-              value="Nominee 2"
+              value="Yuno Miles"
             />
             <label for="nominee2"
               >Yuno Miles / Beat My Grandma With a Pumpkin</label
-            ><br />
+            >
             <div class="bio">
               Yuno Miles is a rising star in the music scene, known for his
               catchy lyrics and engaging performances that resonate with a young
@@ -143,23 +150,17 @@
               type="radio"
               id="nominee3"
               name="nominee"
-              value="Nominee 3"
+              value="Flight Reacts"
             />
-            <label for="nominee3">Flight Reacts / Broke Boi</label><br />
+            <label for="nominee3">Flight Reacts / Broke Boi</label>
             <div class="bio">
               Flight Reacts, also known as Flight, is a YouTuber and rapper who
               gained popularity for his reaction videos and unique musical
               style.
             </div>
 
-            <input
-              type="radio"
-              id="nominee4"
-              name="nominee"
-              value="Nominee 4"
-            />
-            <label for="nominee4">Jewboi / The Weather Outside is Rizzy</label
-            ><br />
+            <input type="radio" id="nominee4" name="nominee" value="Jewboi" />
+            <label for="nominee4">Jewboi / The Weather Outside is Rizzy</label>
             <div class="bio">
               Jewboi is an artist known for his humorous lyrics and engaging
               content, often blending comedy with catchy melodies.
@@ -167,8 +168,15 @@
           </div>
           <br />
 
-          <input type="submit" value="Submit Vote" />
+          <input type="button" value="Submit Vote" onclick="showWinner()" />
         </form>
+
+        <!-- Winner Section -->
+        <div class="winner" id="winner">
+          <h3>Congratulations!</h3>
+          <p id="winnerName"></p>
+          <img id="winnerImage" src="" alt="Winner Picture" />
+        </div>
       </section>
     </main>
 
@@ -176,5 +184,49 @@
     <footer>
       <p>&copy; 2024 Grammy Awards. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Handling Vote -->
+    <script>
+      function showWinner() {
+        const nomineeRadios = document.getElementsByName("nominee");
+        let selectedNominee;
+        for (const radio of nomineeRadios) {
+          if (radio.checked) {
+            selectedNominee = radio.value;
+            break;
+          }
+        }
+
+        if (selectedNominee) {
+          const winnerName = document.getElementById("winnerName");
+          const winnerImage = document.getElementById("winnerImage");
+          const winnerSection = document.getElementById("winner");
+
+          // Set the name and image based on the selected nominee
+          switch (selectedNominee) {
+            case "KSI":
+              winnerName.textContent = "KSI / Thick Of It";
+              winnerImage.src = "path/to/ksi.jpg"; // Update with actual image path
+              break;
+            case "Yuno Miles":
+              winnerName.textContent =
+                "Yuno Miles / Beat My Grandma With a Pumpkin";
+              winnerImage.src = "path/to/yuno.jpg"; // Update with actual image path
+              break;
+            case "Flight Reacts":
+              winnerName.textContent = "Flight Reacts / Broke Boi";
+              winnerImage.src = "path/to/flight.jpg"; // Update with actual image path
+              break;
+            case "Jewboi":
+              winnerName.textContent = "Jewboi / The Weather Outside is Rizzy";
+              winnerImage.src = "path/to/jewboi.jpg"; // Update with actual image path
+              break;
+          }
+
+          // Show the winner section
+          winnerSection.style.display = "block";
+        }
+      }
+    </script>
   </body>
 </html>
